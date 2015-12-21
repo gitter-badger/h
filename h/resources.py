@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from pyramid.security import Allow
+from pyramid import security
 
 from h.api import resources as api
 from h.api.resources import Resource
@@ -44,6 +45,7 @@ class Root(Resource):
         (Allow, 'group:__admin__', 'admin_badge'),
         (Allow, 'group:__admin__', 'admin_groups'),
         (Allow, 'group:__staff__', 'admin_groups'),
+        (Allow, security.Authenticated, 'authenticated'),
     ]
 
 

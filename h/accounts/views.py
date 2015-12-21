@@ -597,6 +597,13 @@ def reset_password_link(request, reset_code):
     return request.route_url('reset_password_with_code', code=reset_code)
 
 
+@view_config(route_name='dismiss_sidebar_tutorial', request_method='POST',
+             permission='authenticated')
+def dismiss_sidebar_tutorial(request):
+    request.authenticated_user.sidebar_tutorial_dismissed = True
+    return httpexceptions.HTTPOk()
+
+
 def includeme(config):
     config.add_route('login', '/login')
     config.add_route('logout', '/logout')
@@ -607,4 +614,5 @@ def includeme(config):
     config.add_route('reset_password_with_code', '/reset_password/{code}')
     config.add_route('profile', '/profile')
     config.add_route('profile_notifications', '/profile/notifications')
+    config.add_route('dismiss_sidebar_tutorial', '/sidebar_tutorial/dismiss')
     config.scan(__name__)

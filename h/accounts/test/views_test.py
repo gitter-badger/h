@@ -217,7 +217,8 @@ def test_logout_response_has_forget_headers(authn_policy):
 
 @pytest.mark.usefixtures('routes_mapper')
 def test_login_ajax_returns_status_okay_when_validation_succeeds():
-    request = DummyRequest(json_body={}, auth_domain='hypothes.is')
+    request = DummyRequest(
+        json_body={}, auth_domain='hypothes.is', authenticated_user=None)
     controller = AjaxAuthController(request)
     controller.form = form_validating_to({'user': FakeUser(username='bob')})
 
@@ -259,7 +260,7 @@ def test_login_ajax_converts_non_string_usernames_to_strings(_):
     for input_, expected_output in ((None, ''), (23, '23'), (True, 'True')):
         request = DummyRequest(
             json_body={'username': input_, 'password': 'pass'},
-            auth_domain='hypothes.is')
+            auth_domain='hypothes.is', authenticated_user=None)
         controller = AjaxAuthController(request)
         controller.form.validate = mock.Mock(
             return_value={'user': mock.Mock()})
@@ -276,7 +277,7 @@ def test_login_ajax_converts_non_string_passwords_to_strings(_):
     for input_, expected_output in ((None, ''), (23, '23'), (True, 'True')):
         request = DummyRequest(
             json_body={'username': 'user', 'password': input_},
-            auth_domain='hypothes.is')
+            auth_domain='hypothes.is', authenticated_user=None)
         controller = AjaxAuthController(request)
         controller.form.validate = mock.Mock(
             return_value={'user': mock.Mock()})
@@ -300,7 +301,7 @@ def test_login_ajax_raises_ValidationFailure_on_ValidationFailure():
 
 @pytest.mark.usefixtures('routes_mapper')
 def test_logout_ajax_returns_status_okay():
-    request = DummyRequest()
+    request = DummyRequest(authenticated_user=None)
 
     result = AjaxAuthController(request).logout()
 

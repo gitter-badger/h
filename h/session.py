@@ -12,6 +12,9 @@ def model(request):
     session['userid'] = request.authenticated_userid
     session['groups'] = _current_groups(request)
     session['features'] = features.all(request)
+    user = request.authenticated_user
+    if user and not user.sidebar_tutorial_dismissed:
+        session['show_sidebar_tutorial'] = True
     return session
 
 
