@@ -1,6 +1,1 @@
-Missing distribution spec <!DOCTYPE html>
-
-Sphinx==1.3.2
-sphinx-rtd-theme==0.1.9
-
-#import sphinxcontrib-httpdomain
+sphinxcontrib-httpdomain
