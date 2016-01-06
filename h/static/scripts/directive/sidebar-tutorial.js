@@ -2,6 +2,7 @@
 
 // @ngInject
 function controller($http, session) {
+  /*jshint validthis:true */
   var vm = this;
 
   vm.showSidebarTutorial = function () {
