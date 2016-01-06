@@ -1,1 +1,1 @@
-sphinxcontrib-httpdomain
+import sphinxcontrib-httpdomain
