@@ -10,7 +10,7 @@ function controller($http, session) {
 
   vm.dismiss = function () {
     $http({method: 'POST', url: '/sidebar_tutorial/dismiss'});
-    session.state.show_sidebar_tutorial = false;
+    session.dismissSidebarTutorial();
   };
 }
 

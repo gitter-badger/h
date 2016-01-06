@@ -80,6 +80,17 @@ function session($document, $http, $resource, $rootScope, flash) {
   var lastLoadTime;
 
   /**
+   * @name session.dismissSidebarTutorial()
+   * @description
+   * Set session.state.show_sidebar_tutorial to false. The tutorial will not
+   * be automatically shown to this user anymore.
+   *
+   */
+  resource.dismissSidebarTutorial = function () {
+    resource.state.show_sidebar_tutorial = false;
+  };
+
+  /**
    * @name session.load()
    * @description
    * Fetches the session data from the server. This function returns an object
