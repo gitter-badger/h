@@ -18,6 +18,7 @@ FEATURES = {
     'new_homepage': "Show the new homepage design?",
     'truncate_annotations': "Truncate long quotes and bodies in annotations?",
     'embed_media': "Replace YouTube, Vimeo etc links in annotations with embeds",
+    'sidebar_tutorial': "Show a tutorial to new users in the sidebar",
 }
 
 

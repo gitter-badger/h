@@ -1,12 +1,13 @@
 'use strict';
 
 // @ngInject
-function controller($http, session) {
+function controller($http, session, features) {
   /*jshint validthis:true */
   var vm = this;
 
   vm.showSidebarTutorial = function () {
-    return session.state.show_sidebar_tutorial;
+    return (features.flagEnabled('sidebar_tutorial') &&
+            session.state.show_sidebar_tutorial);
   };
 
   vm.dismiss = function () {
