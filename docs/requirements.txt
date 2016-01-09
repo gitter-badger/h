@@ -1,1 +1,2 @@
-import sphinxcontrib-httpdomain
+pip install -r requirements.txt
+#sphinxcontrib-httpdomain
