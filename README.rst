@@ -1,6 +1,10 @@
 Hypothesis
 ==========
 
+.. image:: https://badges.gitter.im/WorldBrain/h.svg
+   :alt: Join the chat at https://gitter.im/WorldBrain/h
+   :target: https://gitter.im/WorldBrain/h?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
 .. image:: https://travis-ci.org/hypothesis/h.svg?branch=master
    :target: https://travis-ci.org/hypothesis/h
    :alt: Build Status
